@@ -139,7 +139,7 @@ namespace DataBase
             this.dateOfBirth.Name = "dateOfBirth";
             this.dateOfBirth.Size = new System.Drawing.Size(307, 22);
             this.dateOfBirth.TabIndex = 9;
-            this.dateOfBirth.Value = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
+            this.dateOfBirth.Value = new System.DateTime(2020, 12, 11, 0, 0, 0, 0);
             // 
             // comboBox1
             // 
