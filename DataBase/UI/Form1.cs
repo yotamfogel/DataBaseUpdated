@@ -138,5 +138,10 @@ namespace DataBase
             if ((zipCode.Text.Length > 6) && (e.KeyChar != (char)Keys.Back))
                 e.KeyChar = char.MinValue;
         }
+
+        private void label0_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace DataBase.BL
 
         public void Insert()
         {
-           DAL.Client_Dal.Insert(m_LastName, m_FirstName, m_phoneNum,  m_dateOfBirth, m_zipCode, m_country);
+           DAL.Client_Dal.Insert(m_FirstName, m_LastName, m_phoneNum,  m_dateOfBirth, m_zipCode, m_country);
         }
     }
 }
