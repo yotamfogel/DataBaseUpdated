@@ -49,6 +49,7 @@ namespace DataBase
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.listBox_Clients = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // firstName
@@ -259,12 +260,23 @@ namespace DataBase
             this.label10.TabIndex = 19;
             this.label10.Text = "Please enter your details:";
             // 
+            // listBox_Clients
+            // 
+            this.listBox_Clients.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.listBox_Clients.FormattingEnabled = true;
+            this.listBox_Clients.ItemHeight = 18;
+            this.listBox_Clients.Location = new System.Drawing.Point(451, 53);
+            this.listBox_Clients.Name = "listBox_Clients";
+            this.listBox_Clients.Size = new System.Drawing.Size(157, 220);
+            this.listBox_Clients.TabIndex = 20;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(357, 329);
+            this.ClientSize = new System.Drawing.Size(620, 329);
+            this.Controls.Add(this.listBox_Clients);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.label6);
@@ -288,6 +300,7 @@ namespace DataBase
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,6 +328,7 @@ namespace DataBase
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ListBox listBox_Clients;
     }
 }
 

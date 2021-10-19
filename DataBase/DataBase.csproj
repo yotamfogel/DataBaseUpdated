@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\Client.cs" />
+    <Compile Include="BL\ClientArr.cs" />
     <Compile Include="DAL\Dal.cs" />
     <Compile Include="DAL\Client_Dal.cs" />
     <Compile Include="UI\Form1.cs">

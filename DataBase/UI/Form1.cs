@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataBase.BL;
+
 
 namespace DataBase
 {
@@ -15,6 +17,7 @@ namespace DataBase
         public Form1()
         {
             InitializeComponent();
+            ClientArrToForm();
         }
         private bool isChanged = false;
         private bool IsEngLetter(char a)
@@ -120,15 +123,15 @@ namespace DataBase
         private BL.Client FormToClient()
         {
             BL.Client a = new BL.Client();
-            a.m_FirstName = this.firstName.Text;
-            a.m_LastName = this.lastName.Text;
-            a.m_phoneNum = this.comboBox1.Text + this.phoneNum.Text;
+            a.FirstName = this.firstName.Text;
+            a.LastName = this.lastName.Text;
+            a.PhoneNum = this.comboBox1.Text + this.phoneNum.Text;
             if (zipCode.Text != null)
-                a.m_zipCode = this.zipCode.Text;
+                a.ZipCode = this.zipCode.Text;
             if (dateOfBirth.Text != null)
-                a.m_dateOfBirth = this.dateOfBirth.Value;
+                a.DateOfBirth = this.dateOfBirth.Value;
             if (country.Text != null)
-                a.m_country = this.country.Text;
+                a.Country = this.country.Text;
             return a;
         }
         private void zipCode_KeyPress(object sender, KeyPressEventArgs e)
@@ -139,7 +142,22 @@ namespace DataBase
                 e.KeyChar = char.MinValue;
         }
 
+        private void ClientArrToForm()
+        {
+
+            //ממירה את הטנ "מ אוסף לקוחות לטופס
+
+            ClientArr clientArr = new ClientArr();
+            clientArr.Fill();
+            listBox_Clients.DataSource = clientArr;
+        }
+
         private void label0_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
