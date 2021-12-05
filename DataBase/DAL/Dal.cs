@@ -47,7 +47,6 @@ class Dal
         //מקשר
 
         //using System.Data.SqlClient;
-
         SqlConnection connection = new SqlConnection();
         //הצבת מחרוזת הקישור במקשר
         connection.ConnectionString = GetConnectionString();

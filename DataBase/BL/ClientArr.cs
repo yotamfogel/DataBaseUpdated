@@ -10,29 +10,49 @@ using DataBase.BL;
 
 namespace DataBase.BL
 {
-        public class ClientArr : ArrayList
+    public class ClientArr : ArrayList
+    {
+        public void Fill()
         {
-            public void Fill()
+
+            //להביא מה-DAL טבלה מלאה בכל הלקוחות
+
+            DataTable dataTable = Client_Dal.GetDataTable();
+
+            //להעביר את הערכים מהטבלה לתוך אוסף הלקוחות
+            //להעביר כל שורה בטבלה ללקוח
+
+            DataRow dataRow;
+            Client curClient;
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                dataRow = dataTable.Rows[i];
+                curClient = new Client(dataRow);
+                this.Add(curClient);
+            }
+        }
+        public ClientArr Filter(int id, string lastName, string cellNumber)
+        {
+            ClientArr clientArr = new ClientArr();
+            Client client;
+            for (int i = 0; i < this.Count; i++)
             {
 
-                //להביא מה-DAL טבלה מלאה בכל הלקוחות
+                //הצבת הלקוח הנוכחי במשתנה עזר - לקוח
 
-                DataTable dataTable = Client_Dal.GetDataTable();
+                client = (this[i] as Client);
+                if
+                (
 
-                //להעביר את הערכים מהטבלה לתוך אוסף הלקוחות
-                //להעביר כל שורה בטבלה ללקוח
+                // מזהה 0 – כלומר, לא נבחר מזהה בסינון
 
-                DataRow dataRow;
-                Client curClient;
-                for (int i = 0; i < dataTable.Rows.Count; i++)
-                {
-                    dataRow = dataTable.Rows[i];
-                    curClient = new Client(dataRow);
-                    this.Add(curClient);
-                }
+                (id == 0 || client.ID == id)
+                && client.LastName.ToLower().StartsWith(lastName.ToLower())
+                && (client.ZipCode + client.PhoneNum.ToString()).Contains(cellNumber)
+                )
+                    clientArr.Add(client);
             }
-      
+            return clientArr;
         }
-
-
+    }
 }

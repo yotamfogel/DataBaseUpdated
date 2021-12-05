@@ -27,9 +27,16 @@ namespace DataBase.BL
         public DateTime DateOfBirth { get => m_dateOfBirth; set => m_dateOfBirth = value; }
         public string Country { get => m_country; set => m_country = value; }
 
-        public void Insert()
+
+
+        public bool Insert()
         {
-           DAL.Client_Dal.Insert(m_FirstName, m_LastName, m_phoneNum,  m_dateOfBirth, m_zipCode, m_country);
+           return DAL.Client_Dal.Insert(m_FirstName, m_LastName, m_phoneNum,  m_dateOfBirth, m_zipCode, m_country);
+        }
+
+        public bool Update()
+        {
+            return DAL.Client_Dal.Update(m_ID, m_FirstName, m_LastName, m_phoneNum,m_dateOfBirth, m_zipCode, m_country);
         }
 
         public Client() { }
@@ -50,6 +57,10 @@ namespace DataBase.BL
 
         public override string ToString()
         { return $"{m_LastName} {m_FirstName}"; }
+        public bool Delete()
+        {
+            return DAL.Client_Dal.Delete(m_ID);
+        }
 
     }
 }
