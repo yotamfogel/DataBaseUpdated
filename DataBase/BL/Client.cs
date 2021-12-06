@@ -17,6 +17,7 @@ namespace DataBase.BL
         private string m_zipCode;
         private DateTime m_dateOfBirth;
         private string m_country;
+        private City m_City;
 
         public int ID { get => m_ID; set => m_ID = value; }
         public string FirstName { get => m_FirstName; set => m_FirstName = value; }
@@ -26,6 +27,9 @@ namespace DataBase.BL
         public string ZipCode { get => m_zipCode; set => m_zipCode = value; }
         public DateTime DateOfBirth { get => m_dateOfBirth; set => m_dateOfBirth = value; }
         public string Country { get => m_country; set => m_country = value; }
+
+        public City City { get => m_City; set => m_City = value; }
+
 
 
 
@@ -53,6 +57,7 @@ namespace DataBase.BL
             m_dateOfBirth = (DateTime)dataRow["DateOfBirth"];
             m_zipCode = dataRow["ZipCode"].ToString();
             m_country = dataRow["Country"].ToString();
+            m_City = new City(dataRow.GetParentRow("ClientCity"));
         }
 
         public override string ToString()

@@ -32,7 +32,7 @@ namespace DataBase.DAL
         {
             //מעדכנת את הלקוח במסד הנתונים
 
-            string str = "UPDATE Table_Client SET"
+            string str = "UPDATE Table_City SET"
 
             + $" [Name] = '{Name}'"
             + $" WHERE [Id] = {Id}";
@@ -44,7 +44,7 @@ namespace DataBase.DAL
         public static bool Delete(int id)
         {
             //מוחקת את הלקוח ממסד הנתונים
-            string str = $"DELETE FROM Table_Client WHERE ID = {id}";
+            string str = $"DELETE FROM Table_City WHERE ID = {id}";
 
             //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה הצליחה
             return Dal.ExecuteSql(str);
@@ -56,7 +56,7 @@ namespace DataBase.DAL
             //מוסיפה את הלקוח למסד הנתונים
             //בניית הוראת ה-SQL
 
-            string str = "INSERT INTO Table_Client"
+            string str = "INSERT INTO Table_City"
             + "("
             + "[Id],[Name]"
             + ")"

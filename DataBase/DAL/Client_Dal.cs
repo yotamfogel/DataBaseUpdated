@@ -24,7 +24,18 @@ namespace DataBase.DAL
 
             //ממלאת את אוסף הטבלאות בטבלת הלקוחות
             Dal.FillDataSet(dataSet, "Table_Client", "[LastName],[FirstName]");
+            DataRelation dataRelation = null;
+            City_Dal.FillDataSet(dataSet);
+            dataRelation = new DataRelation(
 
+            //שם קשר הגומלין
+
+            "ClientCity" , dataSet.Tables["Table_City"].Columns["ID"]
+            , dataSet.Tables["Table_Client"].Columns["City"]);
+
+            //הוספת קשר הגומלין לאוסף הטבלאות
+
+            dataSet.Relations.Add(dataRelation);
             //בהמשך יהיו כאן הוראות נוספות הקשורות לקשרי גומלין...
 
         }

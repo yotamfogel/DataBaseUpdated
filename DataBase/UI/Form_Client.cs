@@ -8,14 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataBase.BL;
+using DataBase.UI;
 
 
 
 namespace DataBase
 {
-    public partial class Form1 : Form
+    public partial class ClientForm : Form
     {
-        public Form1()
+        public ClientForm()
         {
             InitializeComponent();
             ClientArrToForm();
@@ -148,6 +149,7 @@ namespace DataBase
             a.FirstName = this.firstName.Text;
             a.LastName = this.lastName.Text;
             a.PhoneNum = this.phoneNum.Text;
+            a.City = cityCombobox.SelectedItem as City;
             if (zipCode.Text != null)
                 a.ZipCode = this.zipCode.Text;
             if (dateOfBirth.Text != null)
@@ -155,6 +157,30 @@ namespace DataBase
             if (country.Text != null)
                 a.Country = this.country.Text;
             return a;
+        }
+        public void CityArrToForm(City curCity = null)
+        {
+            CityArr cityArr = new CityArr();
+
+            //הוספת ישוב ברירת מחדל - בחר ישוב
+            //יצירת מופע חדש של ישוב עם מזהה מינוס 1 ושם מתאים
+
+            City cityDefault = new City();
+            cityDefault.ID = -1;
+            cityDefault.Name = "Choose a city ";
+
+//הוספת הישוב לאוסף הישובים - אותו נציב במקור הנתונים של תיבת הבחירה
+
+            cityArr.Add(cityDefault);
+            cityArr.Fill();
+            cityCombobox.DataSource = cityArr;
+            cityCombobox.ValueMember = "Id";
+            cityCombobox.DisplayMember = "Name";
+
+            //אם נשלח לפעולה ישוב, הצבתו בתיבת הבחירה של ישובים בטופס
+
+            if (curCity != null)
+                cityCombobox.SelectedValue = curCity.ID;
         }
         private void zipCode_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -187,6 +213,7 @@ namespace DataBase
                 phoneNum.Text = client.PhoneNum.ToString();
                 dateOfBirth.Value = client.DateOfBirth;
                 country.Text = client.Country;
+                cityCombobox.SelectedValue = client.City.ID;
             }
             else
             {
@@ -197,6 +224,7 @@ namespace DataBase
                 phoneNum.Text = "";
                 dateOfBirth.Value = DateTime.Today;
                 country.Text = "";
+                cityCombobox.SelectedItem = null;
             }
         }
 
@@ -321,6 +349,12 @@ namespace DataBase
             listBox_Clients.DataSource = clientArr;
         }
 
+        private void save_Click(object sender, EventArgs e)
+        {
+            CityForm form_City = new CityForm(cityCombobox.SelectedItem as City);
+            form_City.ShowDialog();
+            CityArrToForm(form_City.SelectedCity);
+        }
     }
 }
 
