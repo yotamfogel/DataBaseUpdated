@@ -61,13 +61,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\Category.cs" />
+    <Compile Include="BL\Product.cs" />
+    <Compile Include="BL\ProductArr.cs" />
+    <Compile Include="BL\CompanyArr.cs" />
+    <Compile Include="BL\CategoryArr.cs" />
+    <Compile Include="BL\Company.cs" />
     <Compile Include="BL\City.cs" />
     <Compile Include="BL\CityArr.cs" />
     <Compile Include="BL\Client.cs" />
     <Compile Include="BL\ClientArr.cs" />
+    <Compile Include="DAL\Product_Dal.cs" />
+    <Compile Include="DAL\Company_Dal.cs" />
+    <Compile Include="DAL\Category_Dal.cs" />
     <Compile Include="DAL\City_Dal.cs" />
     <Compile Include="DAL\Dal.cs" />
     <Compile Include="DAL\Client_Dal.cs" />
+    <Compile Include="UI\Form_Products.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Products.Designer.cs">
+      <DependentUpon>Form_Products.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Form_Client.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +112,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Form_Products.resx">
+      <DependentUpon>Form_Products.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -20,6 +20,7 @@ namespace DataBase
         {
             InitializeComponent();
             ClientArrToForm();
+            CityArrToForm();
         }
         private bool IsEngLetter(char a)
         {
@@ -113,6 +114,12 @@ namespace DataBase
             if (phoneNum.Text.Length != 10)
             {
                 phoneNum.BackColor = Color.Red;
+                isOk = false;
+            }
+
+            if (!isCity)
+            {
+                cityCombobox.ForeColor = Color.Red;
                 isOk = false;
             }
             return isOk;
@@ -349,11 +356,16 @@ namespace DataBase
             listBox_Clients.DataSource = clientArr;
         }
 
-        private void save_Click(object sender, EventArgs e)
+        private void Save_Click(object sender, EventArgs e)
         {
-            CityForm form_City = new CityForm(cityCombobox.SelectedItem as City);
-            form_City.ShowDialog();
-            CityArrToForm(form_City.SelectedCity);
+            CityForm formCity = new CityForm(cityCombobox.SelectedItem as City);
+            formCity.ShowDialog();
+            CityArrToForm(formCity.SelectedCity);
+        }
+        private bool isCity = false;
+        private void cityCombobox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            isCity = true;
         }
     }
 }

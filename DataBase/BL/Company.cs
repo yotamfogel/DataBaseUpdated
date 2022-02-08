@@ -7,7 +7,7 @@ using System.Data;
 
 namespace DataBase.BL
 {
-        public class City
+    public class Company
     {
 
         private int m_ID;
@@ -15,7 +15,7 @@ namespace DataBase.BL
 
         public int ID { get => m_ID; set => m_ID = value; }
         public string Name { get => m_Name; set => m_Name = value; }
-        public City(DataRow dataRow)
+        public Company(DataRow dataRow)
         {
 
             //מייצרת לקוח מתוך שורת לקוח
@@ -23,27 +23,27 @@ namespace DataBase.BL
             m_ID = (int)dataRow["ID"];
             m_Name = (string)dataRow["Name"];
         }
-        public City(int id, string name)
+        public Company(int id, string name)
         {
             this.m_ID = id;
             this.m_Name = name;
         }
 
-        public City()
+        public Company()
         {
         }
 
         public bool Update()
         {
-            return DAL.City_Dal.Update(m_ID, m_Name);
+            return DAL.Company_Dal.Update(m_ID, m_Name);
         }
         public bool Insert()
         {
-            return DAL.City_Dal.Insert(m_ID, m_Name);
+            return DAL.Company_Dal.Insert(m_ID, m_Name);
         }
         public bool Delete()
         {
-            return DAL.City_Dal.Delete(m_ID);
+            return DAL.Company_Dal.Delete(m_ID);
         }
         public override string ToString()
         { return $"{m_Name}"; }

@@ -61,7 +61,8 @@ namespace DataBase
             this.label14 = new System.Windows.Forms.Label();
             this.filterBox = new System.Windows.Forms.GroupBox();
             this.cityCombobox = new System.Windows.Forms.ComboBox();
-            this.save = new System.Windows.Forms.Button();
+            this.Save = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.filterBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -194,7 +195,7 @@ namespace DataBase
             this.submit.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.submit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.submit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.submit.Location = new System.Drawing.Point(133, 286);
+            this.submit.Location = new System.Drawing.Point(133, 325);
             this.submit.Name = "submit";
             this.submit.Size = new System.Drawing.Size(124, 35);
             this.submit.TabIndex = 15;
@@ -284,8 +285,8 @@ namespace DataBase
             this.Clear.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Clear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Clear.Location = new System.Drawing.Point(262, 286);
-            this.Clear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Clear.Location = new System.Drawing.Point(262, 325);
+            this.Clear.Margin = new System.Windows.Forms.Padding(2);
             this.Clear.Name = "Clear";
             this.Clear.Size = new System.Drawing.Size(81, 35);
             this.Clear.TabIndex = 23;
@@ -298,8 +299,8 @@ namespace DataBase
             this.deleteButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.deleteButton.ForeColor = System.Drawing.Color.Red;
-            this.deleteButton.Location = new System.Drawing.Point(444, 249);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deleteButton.Location = new System.Drawing.Point(445, 245);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(74, 32);
             this.deleteButton.TabIndex = 24;
@@ -321,7 +322,7 @@ namespace DataBase
             // idBox
             // 
             this.idBox.Location = new System.Drawing.Point(86, 53);
-            this.idBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.idBox.Margin = new System.Windows.Forms.Padding(2);
             this.idBox.MaxLength = 10;
             this.idBox.Name = "idBox";
             this.idBox.Size = new System.Drawing.Size(93, 20);
@@ -332,7 +333,7 @@ namespace DataBase
             // lastNameBox
             // 
             this.lastNameBox.Location = new System.Drawing.Point(86, 80);
-            this.lastNameBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lastNameBox.Margin = new System.Windows.Forms.Padding(2);
             this.lastNameBox.Name = "lastNameBox";
             this.lastNameBox.Size = new System.Drawing.Size(93, 20);
             this.lastNameBox.TabIndex = 27;
@@ -341,7 +342,7 @@ namespace DataBase
             // phoneNumBox
             // 
             this.phoneNumBox.Location = new System.Drawing.Point(86, 110);
-            this.phoneNumBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.phoneNumBox.Margin = new System.Windows.Forms.Padding(2);
             this.phoneNumBox.Name = "phoneNumBox";
             this.phoneNumBox.Size = new System.Drawing.Size(93, 20);
             this.phoneNumBox.TabIndex = 28;
@@ -390,9 +391,9 @@ namespace DataBase
             this.filterBox.Controls.Add(this.phoneNumBox);
             this.filterBox.Controls.Add(this.label12);
             this.filterBox.Location = new System.Drawing.Point(524, 37);
-            this.filterBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.filterBox.Margin = new System.Windows.Forms.Padding(2);
             this.filterBox.Name = "filterBox";
-            this.filterBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.filterBox.Padding = new System.Windows.Forms.Padding(2);
             this.filterBox.Size = new System.Drawing.Size(185, 159);
             this.filterBox.TabIndex = 32;
             this.filterBox.TabStop = false;
@@ -400,28 +401,42 @@ namespace DataBase
             // cityCombobox
             // 
             this.cityCombobox.FormattingEnabled = true;
-            this.cityCombobox.Location = new System.Drawing.Point(571, 234);
+            this.cityCombobox.Location = new System.Drawing.Point(132, 280);
             this.cityCombobox.Name = "cityCombobox";
             this.cityCombobox.Size = new System.Drawing.Size(121, 21);
             this.cityCombobox.TabIndex = 33;
+            this.cityCombobox.Text = "Choose a city";
+            this.cityCombobox.SelectedValueChanged += new System.EventHandler(this.cityCombobox_SelectedValueChanged);
             // 
-            // save
+            // Save
             // 
-            this.save.Location = new System.Drawing.Point(598, 261);
-            this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(52, 20);
-            this.save.TabIndex = 34;
-            this.save.Text = "Save";
-            this.save.UseVisualStyleBackColor = true;
-            this.save.Click += new System.EventHandler(this.save_Click);
+            this.Save.Location = new System.Drawing.Point(259, 281);
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(23, 20);
+            this.Save.TabIndex = 34;
+            this.Save.Text = "+";
+            this.Save.UseVisualStyleBackColor = true;
+            this.Save.Click += new System.EventHandler(this.Save_Click);
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.SystemColors.Menu;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 277);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 20);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "City:";
             // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.ClientSize = new System.Drawing.Size(718, 329);
-            this.Controls.Add(this.save);
+            this.ClientSize = new System.Drawing.Size(718, 388);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.Save);
             this.Controls.Add(this.cityCombobox);
             this.Controls.Add(this.filterBox);
             this.Controls.Add(this.deleteButton);
@@ -491,7 +506,8 @@ namespace DataBase
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox filterBox;
         private System.Windows.Forms.ComboBox cityCombobox;
-        private System.Windows.Forms.Button save;
+        private System.Windows.Forms.Button Save;
+        private System.Windows.Forms.Label label4;
     }
 }
 

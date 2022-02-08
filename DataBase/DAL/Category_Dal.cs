@@ -7,7 +7,7 @@ using System.Collections;
 using System.Data;
 namespace DataBase.DAL
 {
-    class City_Dal
+    class Category_Dal
     {
 
         public static DataTable GetDataTable()
@@ -15,7 +15,7 @@ namespace DataBase.DAL
             DataTable dataTable = null;
             DataSet dataSet = new DataSet();
             FillDataSet(dataSet);
-            dataTable = dataSet.Tables["Table_City"];
+            dataTable = dataSet.Tables["Table_Category"];
             return dataTable;
         }
 
@@ -24,15 +24,15 @@ namespace DataBase.DAL
 
             //ממלאת את אוסף הטבלאות בטבלה הנוכחית - בתנאי שהטבלה לא נמצאת כבר באוסף
 
-            if (!dataSet.Tables.Contains("Table_City"))
-                Dal.FillDataSet(dataSet, "Table_City", "[Name]");
+            if (!dataSet.Tables.Contains("Table_Category"))
+                Dal.FillDataSet(dataSet, "Table_Category", "[Name]");
         }
 
         public static bool Update(int Id, string Name)
         {
             //מעדכנת את הלקוח במסד הנתונים
 
-            string str = "UPDATE Table_City SET"
+            string str = "UPDATE Table_Category SET"
 
             + $" [Name] = '{Name}'"
             + $" WHERE [Id] = {Id}";
@@ -44,7 +44,7 @@ namespace DataBase.DAL
         public static bool Delete(int id)
         {
             //מוחקת את הלקוח ממסד הנתונים
-            string str = $"DELETE FROM Table_City WHERE ID = {id}";
+            string str = $"DELETE FROM Table_Category WHERE ID = {id}";
 
             //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה הצליחה
             return Dal.ExecuteSql(str);
@@ -56,7 +56,7 @@ namespace DataBase.DAL
             //מוסיפה את הלקוח למסד הנתונים
             //בניית הוראת ה-SQL
 
-            string str = "INSERT INTO Table_City"
+            string str = "INSERT INTO Table_Category"
             + " VALUES "
             + "("
             + $"'{name}'"

@@ -17,7 +17,7 @@ namespace DataBase
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CityForm());
+            Application.Run(new ClientForm());
         }
     }
 }

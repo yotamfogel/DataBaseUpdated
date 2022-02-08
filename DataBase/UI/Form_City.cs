@@ -98,17 +98,25 @@ namespace DataBase.UI
                 City city = FormToCity();
                 if (city.ID == 0)
                 {
-
-                    if (city.Insert())
+                    CityArr oldCityArr = new CityArr();
+                    oldCityArr.Fill();
+                    if (!oldCityArr.IsContains(city.Name))
                     {
-                        MessageBox.Show("Your form has been saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        CityArr cityArr = new CityArr();
-                        cityArr.Fill();
-                        city = cityArr.GetCityWithMaxId();
-                        CityArrToForm(city);
+                        if (city.Insert())
+                        {
+                            MessageBox.Show("City Added");
+                            CityArr cityArr = new CityArr();
+                            cityArr.Fill();
+                            city = cityArr.GetCityWithMaxId();
+                            CityArrToForm(city);
+                            //עדכון תיבת הרשימה
+                        }
+                        else
+                            MessageBox.Show("Error, City not added");
+
                     }
                     else
-                        MessageBox.Show("Fill all the mandatory fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("City already exists!");
                 }
                 else
                 {
@@ -123,24 +131,7 @@ namespace DataBase.UI
                     else
                         MessageBox.Show("Error updating");
                 }
-                CityArr oldCityArr = new CityArr();
-                oldCityArr.Fill();
-                if (!oldCityArr.IsContains(city.Name))
-                {
-                    if (city.Insert())
-                    {
-                        MessageBox.Show("City Added");
-
-                        //עדכון תיבת הרשימה
-
-                        CityArrToForm();
-                    }
-                    else
-                        MessageBox.Show("Error, City not added");
-
-                }
-                else
-                    MessageBox.Show("City already exists!");  
+                
                 CityArrToForm();
                 ReturnToWhite();
 
@@ -165,9 +156,9 @@ namespace DataBase.UI
 
             CityArr cityArr = new CityArr();
             cityArr.Fill();
-            //City_Listbox.DataSource = cityArr;
-            //City_Listbox.ValueMember = "Id";
-            //City_Listbox.DisplayMember = "Name";
+            City_Listbox.DataSource = cityArr;
+            City_Listbox.ValueMember = "Id";
+            City_Listbox.DisplayMember = "Name";
 
             //אם נשלח לפעולה ישוב ,הצבתו בתיבת הבחירה של ישובים בטופס
 

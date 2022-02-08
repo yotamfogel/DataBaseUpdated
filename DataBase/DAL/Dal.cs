@@ -55,7 +55,7 @@ class Dal
         SqlCommand command = new SqlCommand();
         command.Connection = connection;
         if (orderBy != "")
-            command.CommandText = "SELECT * FROM " + tableName + " ORDER BY " + orderBy;
+            command.CommandText = "SELECT * FROM " + tableName + " Product BY " + orderBy;
         else
             command.CommandText = "SELECT * FROM " + tableName;
 
