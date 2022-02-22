@@ -1,7 +1,7 @@
 ﻿
 namespace DataBase.UI
 {
-    partial class Form_Products
+    partial class Form_Order
     {
         /// <summary>
         /// Required designer variable.

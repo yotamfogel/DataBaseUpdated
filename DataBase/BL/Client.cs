@@ -18,6 +18,7 @@ namespace DataBase.BL
         private DateTime m_dateOfBirth;
         private string m_country;
         private City m_City; //חדש
+        private Company m_Company;
 
 
 
@@ -30,6 +31,8 @@ namespace DataBase.BL
         public DateTime DateOfBirth { get => m_dateOfBirth; set => m_dateOfBirth = value; }
         public string Country { get => m_country; set => m_country = value; }
         public City City { get => m_City; set => m_City = value; } //חדש
+
+        public Company Company { get => m_Company; set => m_Company = value; }
 
 
 
@@ -53,6 +56,8 @@ namespace DataBase.BL
             m_zipCode = dataRow["ZipCode"].ToString();
             m_country = dataRow["Country"].ToString();
             m_City = new City(dataRow.GetParentRow("ClientCity"));
+            m_Company= new Company(dataRow.GetParentRow("ClientCompany"));
+
         }
 
         public bool Update()

@@ -12,9 +12,13 @@ namespace DataBase.BL
 
         private int m_ID;
         private string m_Name;
+        private Category m_Category;
+        private Company m_Company;
 
         public int ID { get => m_ID; set => m_ID = value; }
         public string Name { get => m_Name; set => m_Name = value; }
+        public Company Company { get => m_Company; set => m_Company= value; }
+        public Category Category { get => m_Category; set => m_Category = value; }
         public Product(DataRow dataRow)
         {
 

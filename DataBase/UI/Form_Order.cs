@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DataBase.UI
 {
-    public partial class Form_Products : Form
+    public partial class Form_Order : Form
     {
-        public Form_Products()
+        public Form_Order()
         {
             InitializeComponent();
         }

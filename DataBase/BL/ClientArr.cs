@@ -66,5 +66,29 @@ namespace DataBase.BL
 
             return false;
         }
+
+        public bool DoesExist(Company curCompany)
+        {
+
+            //מחזירה האם לפחות לאחד מהלקוחות יש את היישוב
+
+            for (int i = 0; i < this.Count; i++)
+                if ((this[i] as Client).Company.ID == curCompany.ID)
+                    return true;
+
+            return false;
+        }
+
+        public bool DoesExist(Category curCategory)
+        {
+
+            //מחזירה האם לפחות לאחד מהלקוחות יש את היישוב
+
+            for (int i = 0; i < this.Count; i++)
+                if ((this[i] as Client).Company.ID == curCategory.ID)
+                    return true;
+
+            return false;
+        }
     }
 }
