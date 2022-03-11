@@ -36,9 +36,7 @@ namespace DataBase
             this.idBox = new System.Windows.Forms.TextBox();
             this.filter = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.companyBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.categoryBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.Clear = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -51,6 +49,8 @@ namespace DataBase
             this.label1 = new System.Windows.Forms.Label();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.addCategory = new System.Windows.Forms.Button();
+            this.companyBox = new System.Windows.Forms.ComboBox();
+            this.categoryBox = new System.Windows.Forms.ComboBox();
             this.filterBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,15 +84,16 @@ namespace DataBase
             this.companyCombobox.Size = new System.Drawing.Size(153, 24);
             this.companyCombobox.TabIndex = 59;
             this.companyCombobox.Text = "Choose a company";
+            this.companyCombobox.SelectedValueChanged += new System.EventHandler(this.companyCombobox_SelectedValueChanged);
             // 
             // filterBox
             // 
+            this.filterBox.Controls.Add(this.categoryBox);
+            this.filterBox.Controls.Add(this.companyBox);
             this.filterBox.Controls.Add(this.idBox);
             this.filterBox.Controls.Add(this.filter);
             this.filterBox.Controls.Add(this.label14);
-            this.filterBox.Controls.Add(this.companyBox);
             this.filterBox.Controls.Add(this.label13);
-            this.filterBox.Controls.Add(this.categoryBox);
             this.filterBox.Controls.Add(this.label12);
             this.filterBox.Location = new System.Drawing.Point(21, 33);
             this.filterBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -131,14 +132,6 @@ namespace DataBase
             this.label14.TabIndex = 31;
             this.label14.Text = "Category";
             // 
-            // companyBox
-            // 
-            this.companyBox.Location = new System.Drawing.Point(115, 98);
-            this.companyBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.companyBox.Name = "companyBox";
-            this.companyBox.Size = new System.Drawing.Size(123, 22);
-            this.companyBox.TabIndex = 27;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -148,14 +141,6 @@ namespace DataBase
             this.label13.Size = new System.Drawing.Size(91, 24);
             this.label13.TabIndex = 30;
             this.label13.Text = "Company";
-            // 
-            // categoryBox
-            // 
-            this.categoryBox.Location = new System.Drawing.Point(115, 135);
-            this.categoryBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.categoryBox.Name = "categoryBox";
-            this.categoryBox.Size = new System.Drawing.Size(123, 22);
-            this.categoryBox.TabIndex = 28;
             // 
             // label12
             // 
@@ -277,6 +262,7 @@ namespace DataBase
             this.categoryComboBox.Size = new System.Drawing.Size(153, 24);
             this.categoryComboBox.TabIndex = 62;
             this.categoryComboBox.Text = "Choose a category";
+            this.categoryComboBox.SelectedValueChanged += new System.EventHandler(this.categoryComboBox_SelectedValueChanged);
             // 
             // addCategory
             // 
@@ -287,6 +273,26 @@ namespace DataBase
             this.addCategory.TabIndex = 64;
             this.addCategory.Text = "+";
             this.addCategory.UseVisualStyleBackColor = true;
+            // 
+            // companyBox
+            // 
+            this.companyBox.FormattingEnabled = true;
+            this.companyBox.Location = new System.Drawing.Point(111, 98);
+            this.companyBox.Margin = new System.Windows.Forms.Padding(4);
+            this.companyBox.Name = "companyBox";
+            this.companyBox.Size = new System.Drawing.Size(129, 24);
+            this.companyBox.TabIndex = 60;
+            this.companyBox.Text = "Choose a company";
+            // 
+            // categoryBox
+            // 
+            this.categoryBox.FormattingEnabled = true;
+            this.categoryBox.Location = new System.Drawing.Point(111, 139);
+            this.categoryBox.Margin = new System.Windows.Forms.Padding(4);
+            this.categoryBox.Name = "categoryBox";
+            this.categoryBox.Size = new System.Drawing.Size(127, 24);
+            this.categoryBox.TabIndex = 63;
+            this.categoryBox.Text = "Choose a category";
             // 
             // ProductForm
             // 
@@ -309,7 +315,6 @@ namespace DataBase
             this.Controls.Add(this.Name);
             this.Controls.Add(this.label9);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "ProductForm";
             this.Text = "6";
             this.filterBox.ResumeLayout(false);
             this.filterBox.PerformLayout();
@@ -327,9 +332,7 @@ namespace DataBase
         private System.Windows.Forms.TextBox idBox;
         private System.Windows.Forms.Label filter;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox companyBox;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox categoryBox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button Clear;
         private System.Windows.Forms.Label label11;
@@ -342,5 +345,7 @@ namespace DataBase
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox categoryComboBox;
         private System.Windows.Forms.Button addCategory;
+        private System.Windows.Forms.ComboBox categoryBox;
+        private System.Windows.Forms.ComboBox companyBox;
     }
 }

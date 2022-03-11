@@ -70,7 +70,7 @@ namespace DataBase.BL
                 product.Name.StartsWith(name)
 
                 //סינון לפי החברה
-                && (company == null || company.ID == -1 || product.Company.Id == company.ID)
+                && (company == null || company.ID == -1 || product.Company.ID == company.ID)
                 //סינון לפי קטגוריה
                 && (category == null || category.ID == -1 || product.Category.ID == category.ID)
                 )

@@ -30,7 +30,7 @@ namespace DataBase.UI
         private void InitializeComponent()
         {
             this.delete = new System.Windows.Forms.Button();
-            this.CompanyID = new System.Windows.Forms.Label();
+            this.CategoryID = new System.Windows.Forms.Label();
             this.Clear = new System.Windows.Forms.Button();
             this.submit = new System.Windows.Forms.Button();
             this.Category_Listbox = new System.Windows.Forms.ListBox();
@@ -52,15 +52,15 @@ namespace DataBase.UI
             this.delete.Text = "Delete";
             this.delete.UseVisualStyleBackColor = false;
             // 
-            // CompanyID
+            // CategoryID
             // 
-            this.CompanyID.AutoSize = true;
-            this.CompanyID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.CompanyID.Location = new System.Drawing.Point(549, 226);
-            this.CompanyID.Name = "CompanyID";
-            this.CompanyID.Size = new System.Drawing.Size(23, 25);
-            this.CompanyID.TabIndex = 41;
-            this.CompanyID.Text = "0";
+            this.CategoryID.AutoSize = true;
+            this.CategoryID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CategoryID.Location = new System.Drawing.Point(549, 226);
+            this.CategoryID.Name = "CategoryID";
+            this.CategoryID.Size = new System.Drawing.Size(23, 25);
+            this.CategoryID.TabIndex = 41;
+            this.CategoryID.Text = "0";
             // 
             // Clear
             // 
@@ -132,7 +132,7 @@ namespace DataBase.UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.delete);
-            this.Controls.Add(this.CompanyID);
+            this.Controls.Add(this.CategoryID);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.Category_Listbox);
@@ -149,7 +149,7 @@ namespace DataBase.UI
         #endregion
 
         private System.Windows.Forms.Button delete;
-        private System.Windows.Forms.Label CompanyID;
+        private System.Windows.Forms.Label CategoryID;
         private System.Windows.Forms.Button Clear;
         private System.Windows.Forms.Button submit;
         private System.Windows.Forms.ListBox Category_Listbox;

@@ -8,7 +8,7 @@ using System.Data;
 namespace DataBase.BL
 {
         public class Product
-    {
+        {
 
         private int m_ID;
         private string m_Name;
@@ -26,11 +26,15 @@ namespace DataBase.BL
 
             m_ID = (int)dataRow["ID"];
             m_Name = (string)dataRow["Name"];
+            m_Company = (Company)dataRow["Company"];
+            m_Category = (Category)dataRow["Category"];
         }
-        public Product(int id, string name)
+        public Product(int id, string name, Company company, Category category)
         {
             this.m_ID = id;
             this.m_Name = name;
+            this.m_Company = company;
+            this.m_Category = category;
         }
 
         public Product()
