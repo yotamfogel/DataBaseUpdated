@@ -37,13 +37,13 @@ namespace DataBase.UI
             this.label21 = new System.Windows.Forms.Label();
             this.label_first = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.listbox_Clients = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textbox_Phone = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textbox_LastName = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -107,7 +107,7 @@ namespace DataBase.UI
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBox);
-            this.tabPage2.Controls.Add(this.listBox3);
+            this.tabPage2.Controls.Add(this.listbox_Clients);
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
@@ -187,22 +187,23 @@ namespace DataBase.UI
             this.label18.TabIndex = 0;
             this.label18.Text = "First Name";
             // 
-            // listBox3
+            // listbox_Clients
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 16;
-            this.listBox3.Location = new System.Drawing.Point(29, 201);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(384, 260);
-            this.listBox3.TabIndex = 39;
+            this.listbox_Clients.FormattingEnabled = true;
+            this.listbox_Clients.ItemHeight = 16;
+            this.listbox_Clients.Location = new System.Drawing.Point(29, 201);
+            this.listbox_Clients.Name = "listbox_Clients";
+            this.listbox_Clients.Size = new System.Drawing.Size(384, 260);
+            this.listbox_Clients.TabIndex = 39;
+            this.listbox_Clients.DoubleClick += new System.EventHandler(this.listbox_Clients_DoubleClick);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.textbox_Phone);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.textBox7);
+            this.groupBox3.Controls.Add(this.textbox_LastName);
             this.groupBox3.Location = new System.Drawing.Point(29, 27);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
@@ -222,13 +223,14 @@ namespace DataBase.UI
             this.label16.TabIndex = 37;
             this.label16.Text = "Filter";
             // 
-            // textBox2
+            // textbox_Phone
             // 
-            this.textBox2.Location = new System.Drawing.Point(172, 119);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(188, 22);
-            this.textBox2.TabIndex = 36;
+            this.textbox_Phone.Location = new System.Drawing.Point(172, 119);
+            this.textbox_Phone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textbox_Phone.Name = "textbox_Phone";
+            this.textbox_Phone.Size = new System.Drawing.Size(188, 22);
+            this.textbox_Phone.TabIndex = 36;
+            this.textbox_Phone.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textbox_Phone_KeyUp);
             // 
             // label17
             // 
@@ -250,13 +252,14 @@ namespace DataBase.UI
             this.label19.TabIndex = 27;
             this.label19.Text = "Last Name";
             // 
-            // textBox7
+            // textbox_LastName
             // 
-            this.textBox7.Location = new System.Drawing.Point(172, 80);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(188, 22);
-            this.textBox7.TabIndex = 29;
+            this.textbox_LastName.Location = new System.Drawing.Point(172, 80);
+            this.textbox_LastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textbox_LastName.Name = "textbox_LastName";
+            this.textbox_LastName.Size = new System.Drawing.Size(188, 22);
+            this.textbox_LastName.TabIndex = 29;
+            this.textbox_LastName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox7_KeyUp);
             // 
             // tabPage1
             // 
@@ -364,6 +367,7 @@ namespace DataBase.UI
             // 
             // expDate
             // 
+            this.expDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.expDate.Location = new System.Drawing.Point(200, 133);
             this.expDate.Name = "expDate";
             this.expDate.Size = new System.Drawing.Size(89, 22);
@@ -517,10 +521,12 @@ namespace DataBase.UI
             this.clientBox.Size = new System.Drawing.Size(200, 24);
             this.clientBox.TabIndex = 79;
             this.clientBox.Text = "Choose a client";
+            this.clientBox.Click += new System.EventHandler(this.clientBox_Click);
             this.clientBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.clientBox_KeyUp);
             // 
             // dateTimeTo
             // 
+            this.dateTimeTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimeTo.Location = new System.Drawing.Point(132, 142);
             this.dateTimeTo.Name = "dateTimeTo";
             this.dateTimeTo.Size = new System.Drawing.Size(200, 22);
@@ -529,6 +535,7 @@ namespace DataBase.UI
             // 
             // dateTimeFrom
             // 
+            this.dateTimeFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimeFrom.Location = new System.Drawing.Point(132, 99);
             this.dateTimeFrom.Name = "dateTimeFrom";
             this.dateTimeFrom.Size = new System.Drawing.Size(200, 22);
@@ -858,13 +865,13 @@ namespace DataBase.UI
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label_first;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox listbox_Clients;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textbox_Phone;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textbox_LastName;
         private System.Windows.Forms.Button Clear;
         private System.Windows.Forms.Button submit;
         private System.Windows.Forms.Label label28;
